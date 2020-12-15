@@ -1,0 +1,174 @@
+/* courtesy of Victoria Garcia off Udemy  */
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;400&display=swap');
+
+:root {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 200;
+
+  --color: #000;
+  --color-red: #ff4500;
+  --color-background: #e4e4e4;
+  --color-button: #fff;
+  --color-background-button: #000;
+  --color-background-clock: #ffffff99;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  color: var(--color);
+  background-color: var(--color-background);
+  height: 100vh;
+  transition: 0.5s ease-in;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.dark {
+  --color: #fff;
+  --color-background: #333;
+  --color-button: #000;
+  --color-background-button: #fff;
+  --color-background-clock: #00000099;
+}
+
+h1 {
+  font-size: 10vmin;
+  font-weight: 100;
+  text-align: center;
+}
+
+button {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  font-weight: 100;
+  padding: 1.5vmin 3vmin;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+small {
+  font-size: 0.7em;
+}
+
+.toggle {
+  display: block;
+  width: 100%;
+  color: var(--color-button);
+  background-color: var(--color-background-button);
+  min-height: 68px;
+}
+
+@media (orientation: landscape) {
+  .toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: max-content;
+    border-radius: 1.5vmin;
+    margin-bottom: 2vmin;
+  }
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: content-box;
+}
+
+.clock-container > * {
+  box-sizing: content-box;
+}
+
+.clock {
+  position: relative;
+  /* background-color: var(--color-background-clock); */
+  border-radius: 50%;
+  width: 50vmin;
+  height: 50vmin;
+}
+
+.needle {
+  background-color: var(--color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 23vmin;
+  width: 1vmin;
+  transform-origin: bottom center;
+}
+
+.hour {
+  width: 2vmin;
+  height: 17vmin;
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.minute {
+  height: 19vmin;
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.second {
+  width: 2px;
+  background-color: var(--color-red);
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.center-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2vmin;
+  height: 2vmin;
+  transform: translate(-50%, -50%);
+  background-color: var(--color);
+  border: 2px solid var(--color-red);
+  border-radius: 50%;
+}
+
+.time {
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.date {
+  font-size: 1.5rem;
+}
+
+.day {
+  display: inline;
+  font-weight: 400;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+  background-color: var(--color-background-clock);
+}
+
+@media (orientation: landscape) {
+  .time {
+    margin-top: 5vmin;
+  }
+
+  .date {
+    margin-bottom: 10vmin;
+  }
+}
